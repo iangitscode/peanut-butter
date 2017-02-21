@@ -5,7 +5,7 @@
 
 class Dino: public Object{
 	public:
-		Dino(std::string,bool,int,int);
+		Dino(std::string,int,int);
 		~Dino() override;
 		void objectUpdate() override;
 		void collisionDetected(Object*) override;

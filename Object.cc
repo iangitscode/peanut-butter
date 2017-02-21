@@ -1,6 +1,6 @@
 #include "Object.h"
 #include <iostream>
-Object::Object(std::string image, bool movable, int x, int y):xPos{x},yPos{y},xVel{0},yVel{0},movable{movable}{
+Object::Object(std::string image, int x, int y):xPos{x},yPos{y},xVel{0},yVel{0}{
 	objects.push_back(this);
 	texture.loadFromFile(image);
 	width=texture.getSize().x;
@@ -14,13 +14,9 @@ Object::~Object(){
 
 void Object::update(sf::RenderWindow& window){
 	objectUpdate(); //do object specific update
-	//physics
-	if(movable){
-	xPos+=xVel; 
+
+	xPos+=xVel;
 	yPos+=yVel;
-	mySprite->setPosition(xPos,yPos);
-	}	
-	//end physics
 
 	int l=objects.size();
 	for(int y=0;y<l;y++){
@@ -34,6 +30,7 @@ void Object::update(sf::RenderWindow& window){
     	   this->collisionDetected(other);
         }
     }
+    mySprite->setPosition(xPos,yPos);
 	window.draw(*mySprite);
 }
 void Object::moveObject(float x, float y){

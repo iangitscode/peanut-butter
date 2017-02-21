@@ -32,10 +32,8 @@ int main()
 {
     int worldWidth=1000;
     int worldHeight=1000;
-    sf::RenderWindow window(sf::VideoMode(worldWidth, worldHeight),"Game");
-    
-    Dino* dino = new Dino("dino.jpg",true, 100, 100);
-
+    sf::RenderWindow window(sf::VideoMode(worldWidth, worldHeight),"Game");   
+    Dino* dino = new Dino("dino.jpg",100, 100);
     while (window.isOpen()){
         window.clear();
         //Update
