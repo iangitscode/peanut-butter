@@ -1,18 +1,19 @@
 #include <SFML/Graphics.hpp>
-//#include <unistd.h>
+
+#ifdef __linux__
+#include <unistd.h>
+#endif
+
 #include <iostream>
 #include <vector>
 #include "Object.h"
-<<<<<<< HEAD
 #include "Dino.h"
-=======
-#include "Paddle.h"
-#include <Windows.h>
->>>>>>> c61a78ca5fdc1d35897920975f85d19bd1b4fbe2
 
 extern std::vector<Object*> objects;
 std::vector<Object*> objects;
 
+#ifdef _WIN32
+#include <Windows.h>
 void usleep(__int64 usec)
 {
 	HANDLE timer;
@@ -25,6 +26,7 @@ void usleep(__int64 usec)
 	WaitForSingleObject(timer, INFINITE);
 	CloseHandle(timer);
 }
+#endif
 
 int main()
 {
@@ -32,7 +34,7 @@ int main()
     int worldHeight=1000;
     sf::RenderWindow window(sf::VideoMode(worldWidth, worldHeight),"Game");
     
-    Dino* dino = new Dino("dino.jpg",true,0,0);
+    Dino* dino = new Dino("dino.jpg",true, 100, 100);
 
     while (window.isOpen()){
         window.clear();
