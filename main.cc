@@ -1,12 +1,30 @@
 #include <SFML/Graphics.hpp>
-#include <unistd.h>
+//#include <unistd.h>
 #include <iostream>
 #include <vector>
 #include "Object.h"
+<<<<<<< HEAD
 #include "Dino.h"
+=======
+#include "Paddle.h"
+#include <Windows.h>
+>>>>>>> c61a78ca5fdc1d35897920975f85d19bd1b4fbe2
 
 extern std::vector<Object*> objects;
 std::vector<Object*> objects;
+
+void usleep(__int64 usec)
+{
+	HANDLE timer;
+	LARGE_INTEGER ft;
+
+	ft.QuadPart = -(10 * usec); // Convert to 100 nanosecond interval, negative value indicates relative time
+
+	timer = CreateWaitableTimer(NULL, TRUE, NULL);
+	SetWaitableTimer(timer, &ft, 0, NULL, NULL, 0);
+	WaitForSingleObject(timer, INFINITE);
+	CloseHandle(timer);
+}
 
 int main()
 {
