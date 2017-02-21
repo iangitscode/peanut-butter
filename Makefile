@@ -1,7 +1,7 @@
 XX = g++-5
 CXXFLAGS = -std=c++14 -Wall -MMD
 EXEC = myprogram
-OBJECTS = main.o Object.o Dino.o
+OBJECTS = main.o Object.o Dino.o Block.o
 DEPENDS = ${OBJECTS:.o=.d}
 
 ${EXEC}: ${OBJECTS}

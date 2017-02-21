@@ -17,13 +17,8 @@ void Object::update(sf::RenderWindow& window){
 
 	xPos+=xVel;
 	yPos+=yVel;
-<<<<<<< HEAD
 	mySprite->setPosition(xPos,yPos);
-
-	}	
 	//end physics
-=======
->>>>>>> origin/master
 
 	int l=objects.size();
 	for(int y=0;y<l;y++){
