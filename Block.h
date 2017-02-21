@@ -6,7 +6,7 @@
 
 class Block : public Object {
 public:
-	Block(std::string, bool, int, int);
+	Block(std::string, int, int);
 	~Block() override;
 	void objectUpdate() override;
 	void collisionDetected(Object*) override;

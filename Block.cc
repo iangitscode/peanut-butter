@@ -1,5 +1,5 @@
 #include "Block.h"
-Block::Block(std::string image, bool movable, int x, int y) :Object{ image,movable,x,y } {
+Block::Block(std::string image, int x, int y):Object{image,x,y}{
 	this->xVel = -3;
 	this->yVel = 0;
 }
