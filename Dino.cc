@@ -1,11 +1,11 @@
-#include "Paddle.h"
-Paddle::Paddle(std::string image):Object{image,true}{
+#include "Dino.h"
+Dino::Dino(std::string image,bool movable, int x, int y):Object{image,movable,x,y}{
 	this->yPos=900;
 }
-Paddle::~Paddle(){
+Dino::~Dino(){
 
 }
-void Paddle::extraUpdate(){
+void Dino::objectUpdate(){
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
             this->xVel=-7;
         }
@@ -20,5 +20,5 @@ void Paddle::extraUpdate(){
  	if(this->xPos>850) this->xPos=850;
 }
 
-void Paddle::collisionDetected(Object* other){
+void Dino::collisionDetected(Object* other){
 }

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 #include "Object.h"
-#include "Paddle.h"
+#include "Dino.h"
 
 extern std::vector<Object*> objects;
 std::vector<Object*> objects;
@@ -14,7 +14,7 @@ int main()
     int worldHeight=1000;
     sf::RenderWindow window(sf::VideoMode(worldWidth, worldHeight),"Game");
     
-    Paddle* paddle = new Paddle("paddle.png");
+    Dino* dino = new Dino("dino.jpg",true,0,0);
 
     while (window.isOpen()){
         window.clear();

@@ -9,10 +9,10 @@ class Object{
 	public:
 		int width, height, xPos, yPos, xVel, yVel;
 		bool movable;
-		Object(std::string,bool);
+		Object(std::string, bool, int, int);
 		virtual ~Object() = 0;
 		void update(sf::RenderWindow&); //Basic updating for every object - physics, drawing
-		virtual void extraUpdate() = 0; //Specific updating for each object
+		virtual void objectUpdate() = 0; //Specific updating for each object
 		virtual void collisionDetected(Object*) = 0;
 		void moveObject(float,float);
 		void scaleObject(float, float);

@@ -1,6 +1,6 @@
 #include "Object.h"
 #include <iostream>
-Object::Object(std::string image, bool movable):xPos{0},yPos{0},xVel{0},yVel{0},movable{movable}{
+Object::Object(std::string image, bool movable, int x, int y):xPos{x},yPos{y},xVel{0},yVel{0},movable{movable}{
 	objects.push_back(this);
 	texture.loadFromFile(image);
 	width=texture.getSize().x;
@@ -13,7 +13,7 @@ Object::~Object(){
 }
 
 void Object::update(sf::RenderWindow& window){
-	extraUpdate(); //do object specific update
+	objectUpdate(); //do object specific update
 	//physics
 	if(movable){
 	xPos+=xVel; 
