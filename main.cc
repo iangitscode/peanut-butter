@@ -8,6 +8,7 @@
 #include <vector>
 #include "Object.h"
 #include "Dino.h"
+#include "Block.h"
 
 extern std::vector<Object*> objects;
 std::vector<Object*> objects;
@@ -35,6 +36,7 @@ int main()
     sf::RenderWindow window(sf::VideoMode(worldWidth, worldHeight),"Game");
     
     Dino* dino = new Dino("dino.jpg",true, 100, 100);
+	Block* block = new Block("block.png", false, 850, 300);
 
     while (window.isOpen()){
         window.clear();

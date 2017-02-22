@@ -19,6 +19,7 @@ void Object::update(sf::RenderWindow& window){
 	xPos+=xVel; 
 	yPos+=yVel;
 	mySprite->setPosition(xPos,yPos);
+
 	}	
 	//end physics
 
