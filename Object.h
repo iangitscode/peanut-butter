@@ -8,8 +8,7 @@ class Object{
 	sf::Texture texture;
 	public:
 		int width, height, xPos, yPos, xVel, yVel;
-		bool movable;
-		Object(std::string, bool, int, int);
+		Object(std::string, int, int);
 		virtual ~Object() = 0;
 		void update(sf::RenderWindow&); //Basic updating for every object - physics, drawing
 		virtual void objectUpdate() = 0; //Specific updating for each object

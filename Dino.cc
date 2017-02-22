@@ -1,5 +1,5 @@
 #include "Dino.h"
-Dino::Dino(std::string image,bool movable, int x, int y):Object{image,movable,x,y}{}
+Dino::Dino(std::string image, int x, int y):Object{image,x,y}{}
 
 Dino::~Dino(){
 
@@ -15,9 +15,9 @@ void Dino::objectUpdate(){
             this->xVel=0;
         }
 
+
  	if(this->xPos<0) this->xPos=0;		//prevents dino from going off left side of screen
  	if(this->xPos>850) this->xPos=850;	//prevents dino from going off right side of screen
 }
 
-void Dino::collisionDetected(Object* other){
-}
+void Dino::collisionDetected(Object* other){}
