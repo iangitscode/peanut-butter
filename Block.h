@@ -3,6 +3,7 @@
 #define _BLOCK_H_
 #include "Object.h"
 #include <string>
+#include "constants.h"
 
 class Block : public Object {
 public:

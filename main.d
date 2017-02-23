@@ -1,1 +1,1 @@
-main.o: main.cc Object.h Dino.h Block.h
+main.o: main.cc Object.h constants.h Dino.h Block.h

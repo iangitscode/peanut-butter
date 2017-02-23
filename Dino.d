@@ -1,1 +1,1 @@
-Dino.o: Dino.cc Dino.h Object.h
+Dino.o: Dino.cc Dino.h Object.h constants.h

@@ -1,6 +1,7 @@
 #include "Object.h"
+
 #include <iostream>
-Object::Object(std::string image, int x, int y):xPos{x},yPos{y},xVel{0},yVel{0}{
+Object::Object(std::string image, int x, int y):xPos{x},yPos{y},xVel{0},yVel{0},xAcc{0},yAcc{0}{
 	objects.push_back(this);
 	texture.loadFromFile(image);
 	width=texture.getSize().x;
@@ -15,10 +16,11 @@ Object::~Object(){
 void Object::update(sf::RenderWindow& window){
 	objectUpdate(); //do object specific update
 
+	xVel+=xAcc;
+	yVel+=yAcc;
 	xPos+=xVel;
 	yPos+=yVel;
 	mySprite->setPosition(xPos,yPos);
-	//end physics
 
 	int l=objects.size();
 	for(int y=0;y<l;y++){
@@ -40,6 +42,16 @@ void Object::moveObject(float x, float y){
 	yPos=y;
 }
 
-void Object::scaleObject(float xFactor, float yFactor){
+void Object::scaleSize(float xFactor, float yFactor){
 	mySprite->scale(xFactor,yFactor);
+	width*=xFactor;
+	height*=yFactor;
+}
+
+void Object::setSize(float xSize, float ySize){
+	float xScale=xSize/width;
+	float yScale=ySize/height;
+	mySprite->scale(xScale,yScale);
+	width=xSize;
+	height=ySize;
 }
