@@ -1,17 +1,22 @@
 #include "Block.h"
-#include "constants.h"
 Block::Block(std::string image, int x, int y):Object{image,x,y}{
-	this->xVel = -3;
+	srand(time(NULL));
+	this->xVel = -10;
 	this->yVel = 0;
 }
 
 Block::~Block() {
 
 }
+
 void Block::objectUpdate() {
 
-	if (this->xPos < 0) this->xPos = worldWidth;		//resets back to front
+	if (this->xPos < 0){
+		this->xPos = worldWidth + rand()%1500;		//resets back to front
+		this->xVel = -((rand()%10)+10); 
+	}
 }
 
-void Block::collisionDetected(Object* other) {
+void Block::collisionDetected(Object* other){
+	std::cout<<"Hit"<<std::endl;
 }
